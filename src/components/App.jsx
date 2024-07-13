@@ -1,16 +1,19 @@
 import { useState } from "react";
-import "./App.css";
+import s from "./App.module.css";
 import ContactForm from "./ContactForm/ContactForm";
 import SearchBox from "./SearchBox/SearchBox";
 import ContactList from "./ContactList/ContactList";
+import contactData from "../contacts.json";
 
 function App() {
+  const [contacts, setContact] = useState(contactData);
+
   return (
     <div>
-      <h1>Phonebook</h1>
+      <h1 className={s.title}>Phonebook</h1>
       <ContactForm />
       <SearchBox />
-      <ContactList />
+      <ContactList contacts={contacts} />
     </div>
   );
 }
