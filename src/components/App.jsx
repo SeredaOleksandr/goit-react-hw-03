@@ -10,7 +10,15 @@ function App() {
   const [filter, setFilter] = useState('');
 
   const addContact = newContact => {
-    setContacts(prevContacts => [...prevContacts, newContact]);
+    setContacts(prevContacts => {
+      return [...prevContacts, newContact];
+    });
+  };
+
+  const deleteContact = contactsId => {
+    setContacts(prevContacts => {
+      return prevContacts.filter(contact => contact.id !== contactsId);
+    });
   };
 
   const handleSearchChange = event => {
@@ -28,7 +36,10 @@ function App() {
       <h1 className={s.title}>Phonebook</h1>
       <ContactForm addContact={addContact} />
       <SearchBox value={filter} onChange={handleSearchChange} />
-      <ContactList contacts={(contacts, filteredContacts())} />
+      <ContactList
+        contacts={(contacts, filteredContacts())}
+        deleteContact={deleteContact}
+      />
     </div>
   );
 }
