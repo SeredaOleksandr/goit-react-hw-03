@@ -1,5 +1,4 @@
-import React from "react";
-import s from "./SearchBox.module.css";
+import s from './SearchBox.module.css';
 
 const SearchBox = ({ value, onChange }) => {
   return (
