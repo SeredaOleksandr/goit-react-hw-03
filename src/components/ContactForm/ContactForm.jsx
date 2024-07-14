@@ -15,9 +15,13 @@ const ContactForm = ({ addContact }) => {
       .max(50, 'Must be 50 characters or less')
       .required('Required'),
     number: Yup.string()
-      .min(10, 'Number is too short')
-      .max(12, 'Number is too long')
-      .matches(/^[0-9]+$/, 'Only numbers are accepted here')
+      // .min(10, 'Number is too short')
+      // .max(12, 'Number is too long')
+      // .matches(/^[0-9]+$/, 'Only numbers are accepted here')
+      .matches(
+        /^\d{3}-\d{2}-\d{2}$/,
+        'Phone number must be in the format 111-11-11'
+      )
       .required('Required'),
   });
 
