@@ -44,7 +44,7 @@ function App() {
       <ContactForm addContact={addContact} />
       <SearchBox value={filter} onChange={handleSearchChange} />
       <ContactList
-        contacts={(contacts, filteredContacts())}
+        contacts={filteredContacts()}
         deleteContact={deleteContact}
       />
     </div>
